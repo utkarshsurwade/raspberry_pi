@@ -14,4 +14,4 @@ print "Lights off"
 
 GPIO.output(12,GPIO.LOW)
 
-
+GPIO.cleanup() #just in case
