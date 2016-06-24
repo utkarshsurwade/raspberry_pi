@@ -1,0 +1,12 @@
+sudo raspi-config
+
+omxplayer -o hdmi testsong.mp4
+
+omxplayer -o local Wake_Me_Up.mp3 
+
+
+
+
+sudo apt-get update
+sudo apt-get upgrade
+

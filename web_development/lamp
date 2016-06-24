@@ -1,0 +1,10 @@
+prerequisites-
+
+sudo apt-get install apache2 php5
+
+sudo visudo
+added sum changes.... www-data ALL=NOPASSWD: ALL
+
+sudo chown -r www-data:www-data /var/www
+
+made my gpio.php file in /vaw/www/html
