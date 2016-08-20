@@ -84,7 +84,7 @@
                  $gpio_on = shell_exec("sudo rm -rf /var/lib/motion/");
                  echo "Motion is Deleted";}
          else if(isset($_POST['drive5'])){
-                 $gpio_on = shell_exec("sudo bash /home/pi/Desktop/Dropbox-Uploader/dropbox_uploader.sh upload /var/lib/motion/ /motion");
+                 $gpio_on = shell_exec("sudo bash /home/pi/Desktop/Dropbox-Uploader/dropbox_uploader.sh -s upload /var/lib/motion/ /");
                  echo "Motion has Shifted to drive";}
 
 
