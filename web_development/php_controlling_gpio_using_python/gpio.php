@@ -30,6 +30,14 @@
                  <input type="submit" value="RESTART" name="restart5">
                  <input type="submit" value="SHIFT" name="shift5">
                  <input type="submit" value="DELETE" name="del5">
+                 <input type="submit" value="DRIVE" name="drive5">
+         </form>
+<p>--------------------------------------------------------------</p>
+         PI CONTROL:
+
+         <form method="post" action="gpio.php">
+                 <input type="submit" value="POWEROFF" name="poweroff">
+                 
          </form>
 <p>--------------------------------------------------------------</p>
 
@@ -39,26 +47,26 @@
 
          if(isset($_POST['on2'])){
                  $gpio_on = shell_exec("sudo python /home/pi/Desktop/raspberry_pi/relay/6.py");
-                 echo "LED is on";}
+                 echo "Lights On";}
          else if(isset($_POST['off2'])){
                  $gpio_on = shell_exec("sudo python /home/pi/Desktop/raspberry_pi/relay/6a.py");
-                 echo "LED is off";}
+                 echo "Lights Off";}
 
 
          if(isset($_POST['on3'])){
                  $gpio_on = shell_exec("sudo python /home/pi/Desktop/raspberry_pi/relay/7.py");
-                 echo "LED is on";}
+                 echo "Fan On";}
          else if(isset($_POST['off3'])){
                  $gpio_on = shell_exec("sudo python /home/pi/Desktop/raspberry_pi/relay/7a.py");
-                 echo "LED is off";}
+                 echo "Fan Off";}
 
 
          if(isset($_POST['on4'])){
                  $gpio_on = shell_exec("sudo python /home/pi/Desktop/raspberry_pi/relay/8.py");
-                 echo "LED is on";}
+                 echo "Lights On";}
          else if(isset($_POST['off4'])){
                  $gpio_on = shell_exec("sudo python /home/pi/Desktop/raspberry_pi/relay/8a.py");
-                 echo "LED is off";}
+                 echo "Lights Off";}
 
          if(isset($_POST['on5'])){
                  $gpio_on = shell_exec("sudo motion on");
@@ -73,8 +81,16 @@
                  $gpio_on = shell_exec("sudo bash /home/pi/Desktop/raspberry_pi/simple_ssh_scripting/motion_backup.sh");
                  echo "Motion has shifted";}
          else if(isset($_POST['del5'])){
-                 $gpio_on = shell_exec("sudo rm -r /var/lib/motion/*");
+                 $gpio_on = shell_exec("sudo rm -rf /var/lib/motion/");
                  echo "Motion is Deleted";}
+         else if(isset($_POST['drive5'])){
+                 $gpio_on = shell_exec("sudo bash /home/pi/Desktop/Dropbox-Uploader/dropbox_uploader.sh upload /var/lib/motion/ /motion");
+                 echo "Motion has Shifted to drive";}
+
+
+         if(isset($_POST['poweroff'])){
+                 $gpio_on = shell_exec("sudo poweroff");
+                 echo "Shutting Down";}
 		?>
          </body>
 </html>
